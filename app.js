@@ -69,7 +69,7 @@ const timeLimit = function (fn, t) {
   };
 };
 
-//! Problem 06: Is Object Empty
+//! Problem 06: Is Object or Array Empty
 
 /**
  * Solution: 06
