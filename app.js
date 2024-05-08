@@ -68,3 +68,17 @@ const timeLimit = function (fn, t) {
     return Promise.race(promises);
   };
 };
+
+//! Problem 06: Is Object Empty
+
+/**
+ * Solution: 06
+ */
+
+const isEmpty = function (obj) {
+  if (Object.keys(obj).length > 0 || obj.length > 0) {
+    return false;
+  } else {
+    return true;
+  }
+};
