@@ -96,3 +96,40 @@ var chunk = function (arr, size) {
   }
   return newArr;
 };
+
+//! Problem 08: Cache With Time Limit
+
+/**
+ * Solution: 08
+ */
+
+class TimeLimitedCache {
+  constructor() {
+    this.cache = new Map();
+  }
+
+  set(key, value, duration) {
+    const expiredKeys = this.cache.get(key);
+    if (expiredKeys) {
+      clearTimeout(expiredKeys.timerId);
+    }
+
+    const timerId = setTimeout(() => {
+      this.cache.delete(key);
+    }, duration);
+
+    this.cache.set(key, { value, timerId });
+    return Boolean(expiredKeys);
+  }
+
+  get(key) {
+    if (this.cache.has(key)) {
+      return this.cache.get(key).value;
+    }
+    return -1;
+  }
+
+  count() {
+    return this.cache.size;
+  }
+}
