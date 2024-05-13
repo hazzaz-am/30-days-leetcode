@@ -35,3 +35,30 @@ const twoSum = function (nums, target) {
     }
   }
 };
+
+//! Problem 03: Valid Anagram
+
+/**
+ * Solution 03:
+ */
+
+const isAnagram = function (s, t) {
+  if (s.length !== t.length) return false;
+  let os = {};
+  let ot = {};
+  for (let val of s) {
+    os[val] = (os[val] || 0) + 1;
+  }
+  for (let val of t) {
+    ot[val] = (ot[val] || 0) + 1;
+  }
+  for (let key in os) {
+    if (os[key] !== ot[key]) {
+      return false;
+    }
+  }
+  return true;
+};
+
+
+

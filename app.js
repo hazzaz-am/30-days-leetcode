@@ -133,3 +133,17 @@ class TimeLimitedCache {
     return this.cache.size;
   }
 }
+
+//! Problem 09: Debounce
+
+/**
+ * Solution: 09
+ */
+
+const debounce = function (fn, t) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), t);
+  };
+};
