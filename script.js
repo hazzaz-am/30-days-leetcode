@@ -147,3 +147,32 @@ const debounce = function (fn, t) {
     timer = setTimeout(() => fn(...args), t);
   };
 };
+
+//! Problem 10: Debounce
+
+/**
+ * Solution: 10
+ */
+
+const promiseAll = function (functions) {
+  return new Promise((resolve, reject) => {
+    let results = [];
+    if (functions.length === 0) {
+      resolve(results);
+      return;
+    }
+    let pending = functions.length;
+    functions.forEach((promise, idx) => {
+      Promise.resolve(promise())
+        .then((res) => {
+          results[idx] = res;
+          pending--;
+
+          if (pending === 0) {
+            resolve(results);
+          }
+        })
+        .catch(reject);
+    });
+  });
+};
