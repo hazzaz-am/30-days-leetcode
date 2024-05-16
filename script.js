@@ -148,7 +148,7 @@ const debounce = function (fn, t) {
   };
 };
 
-//! Problem 10: Debounce
+//! Problem 10: Execute Asynchronous Functions in Parallel
 
 /**
  * Solution: 10
