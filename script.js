@@ -177,19 +177,48 @@ const promiseAll = function (functions) {
   });
 };
 
-
 //! Problem 11: Array Prototype Last
 
 /**
  * Solution: 11
  */
 
-
-Array.prototype.last = function() {
+Array.prototype.last = function () {
   let length = this.length;
-  if(length === 0) {
-    return -1
+  if (length === 0) {
+    return -1;
   } else {
-    return this[length - 1]
-  }  
+    return this[length - 1];
+  }
+};
+
+//! Problem 13: Group By
+
+/**
+ * Solution: 13
+ */
+
+Array.prototype.groupBy = function (fn) {
+  let obj = {};
+
+  for (let i = 0; i < this.length; i++) {
+    let key = fn(this[i]);
+    if (obj.hasOwnProperty(key)) {
+      obj[key].push(this[i]);
+    } else {
+      obj[key] = [this[i]];
+    }
+  }
+
+  return obj;
+};
+
+//! Problem 14: Sort By
+
+/**
+ * Solution: 14
+ */
+
+var sortBy = function (arr, fn) {
+  return arr.sort((a, b) => fn(a) - fn(b));
 };
