@@ -223,10 +223,28 @@ var sortBy = function (arr, fn) {
   return arr.sort((a, b) => fn(a) - fn(b));
 };
 
-
 //! Problem 15: Join Two Arrays by ID
 
 /**
  * Solution: 15
  */
 
+const join = function (arr1, arr2) {
+  const hashObj = {};
+
+  for (const obj of arr1) {
+    if (!hashObj[obj.id]) {
+      hashObj[obj.id] = { ...obj };
+    }
+  }
+
+  for (const obj of arr2) {
+    if (hashObj[obj.id]) {
+      hashObj[obj.id] = { ...hashObj[obj.id], ...obj };
+    } else {
+      hashObj[obj.id] = { ...obj };
+    }
+  }
+
+  return Object.values(hashObj);
+};
