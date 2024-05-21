@@ -222,3 +222,11 @@ Array.prototype.groupBy = function (fn) {
 var sortBy = function (arr, fn) {
   return arr.sort((a, b) => fn(a) - fn(b));
 };
+
+
+//! Problem 15: Join Two Arrays by ID
+
+/**
+ * Solution: 15
+ */
+
