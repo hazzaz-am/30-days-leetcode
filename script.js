@@ -248,3 +248,21 @@ const join = function (arr1, arr2) {
 
   return Object.values(hashObj);
 };
+
+//! Problem 16: Flatten Deeply Nested Array
+
+/**
+ * Solution: 16
+ */
+
+const flat = function (arr, n, curr = 0, res = []) {
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i]) && curr < n) {
+      flat(arr[i], n, curr + 1, res);
+    } else {
+      res.push(arr[i]);
+    }
+  }
+
+  return res;
+};
